@@ -8,7 +8,6 @@ namespace PageObjectTask.Tests
         [TestCase("Java", "All Cities in Spain")]
         public void ValidateTechnologyWithinCountryTest(string programmingLanguage, string location)
         {
-            homePage.acceptButton.Click();
             homePage.careerTab.Click();
             careerPage.keywordInput.SendKeys(programmingLanguage);
             careerPage.locationDropdown.Click();
