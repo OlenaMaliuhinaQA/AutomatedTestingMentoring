@@ -16,10 +16,10 @@ public class BaseTest
         driver = new ChromeDriver();
 
         homePage = new HomePage(driver);
-        careerPage = new CareerPage();
-        aboutPage = new AboutPage();
-        articlePage = new ArticlePage();
-        insightsPage = new InsightsPage();
+        careerPage = new CareerPage(driver);
+        aboutPage = new AboutPage(driver);
+        articlePage = new ArticlePage(driver);
+        insightsPage = new InsightsPage(driver);
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
         driver.Navigate().GoToUrl(@"https://www.epam.com/");
         driver.Manage().Window.Maximize();

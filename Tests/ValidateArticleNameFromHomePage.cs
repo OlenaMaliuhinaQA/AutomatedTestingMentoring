@@ -11,13 +11,13 @@ namespace PageObjectTask.Tests
         [TestCase("BLOCKCHAIN/Cloud/Automation")]
         public void ValidateArticleNameFromHomePageTest(string searchItem)
         {
-            driver.FindElement(homePage.magnifierIcon).Click();
-            IWebElement inputElement = driver.FindElement(homePage.searchInput);
+           homePage.magnifierIcon.Click();
+            IWebElement inputElement = homePage.searchInput;
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
             wait.Until(d => inputElement.Displayed);
             inputElement.Clear();
             inputElement.SendKeys(searchItem);
-            driver.FindElement(homePage.findButton).Click();
+            homePage.findButton.Click();
             string htmlContent = "<div class=\"search-results__items\">...</div>";
             XElement root = XElement.Parse(htmlContent);
             bool allContainWords = root.XPathSelectElements("//article")

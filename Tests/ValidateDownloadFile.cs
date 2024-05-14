@@ -8,11 +8,11 @@ namespace PageObjectTask.Tests
         [Test]
         public void ValidateDownloadFileTest()
         {
-            driver.FindElement(homePage.aboutTab).Click();
-            driver.FindElement(aboutPage.acceptCookiesButton).Click();
-            IWebElement element = driver.FindElement(aboutPage.EPAMAtGlanceSection);
-            ScrollToElement(driver, element);
-            driver.FindElement(aboutPage.downloadButton).Click();
+            homePage.aboutTab.Click();
+            aboutPage.acceptCookiesButton.Click();
+            IWebElement element = aboutPage.EPAMAtGlanceSection;
+           // ScrollToElement(driver, element);
+            aboutPage.downloadButton.Click();
             string downloadDirectory = @"C:\Users\Olena_Maliuhina\Downloads";
             WaitForFileDownload(downloadDirectory, "EPAM_Corporate_Overview_Q4_EOY.pdf", TimeSpan.FromSeconds(30));
             string filePath = Path.Combine(downloadDirectory, "EPAM_Corporate_Overview_Q4_EOY.pdf");
