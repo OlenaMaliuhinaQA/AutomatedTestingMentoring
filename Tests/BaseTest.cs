@@ -1,8 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using System.Xml.Linq;
-using System.Xml.XPath;
 public class BaseTest
 {
     public IWebDriver driver;

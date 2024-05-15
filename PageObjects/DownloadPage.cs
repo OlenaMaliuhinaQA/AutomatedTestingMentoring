@@ -1,18 +1,10 @@
-﻿using OpenQA.Selenium.Support.UI;
-using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OpenQA.Selenium;
 
 namespace PageObjectTask.PageObjects
 {
     public class DownloadPage
     {
-      
-    private IWebDriver driver;
-
+        private IWebDriver driver;
         public DownloadPage(IWebDriver driver)
         {
             this.driver = driver;
@@ -35,5 +27,3 @@ namespace PageObjectTask.PageObjects
         }
     }
 }
-
-

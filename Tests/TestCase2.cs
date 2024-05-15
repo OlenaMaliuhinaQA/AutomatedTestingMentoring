@@ -1,11 +1,5 @@
-﻿using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
+﻿using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 using PageObjectTask.PageObjects;
 using System.Xml.XPath;
@@ -15,7 +9,6 @@ namespace PageObjectTask.Tests
 
     public class Tests2 : BaseTest
     {
-
         [Test]
         [TestCase("BLOCKCHAIN/Cloud/Automation")]
         public void Test2(string searchItem)
@@ -24,7 +17,7 @@ namespace PageObjectTask.Tests
             HomePage homePage = new HomePage();
 
             //2.	Find a magnifier icon and click on it
-             driver.FindElement(homePage.magnifierIcon).Click();
+            driver.FindElement(homePage.magnifierIcon).Click();
 
             //3. Find a search string and put there “BLOCKCHAIN”/”Cloud”/”Automation” (use as a parameter for a test)
 
@@ -60,9 +53,6 @@ namespace PageObjectTask.Tests
             {
                 Assert.Fail("Not all <article> elements contain the specified words.");
             }
-
-
         }
-
     }
 }

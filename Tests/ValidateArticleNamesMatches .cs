@@ -1,9 +1,4 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using PageObjectTask.PageObjects;
-using System;
+﻿using PageObjectTask.PageObjects;
 
 namespace PageObjectTask.Tests
 {
@@ -16,7 +11,7 @@ namespace PageObjectTask.Tests
             ArticlePage articlePage = new ArticlePage();
             InsightsPage insightsPage = new InsightsPage();
 
-           driver.FindElement(basePage.insightsTab).Click(); // click on Insights tab
+            driver.FindElement(basePage.insightsTab).Click(); // click on Insights tab
 
             //Swipe a carousel twice
             driver.FindElement(insightsPage.rightArrowInCaurosel).Click();
@@ -33,6 +28,6 @@ namespace PageObjectTask.Tests
 
             // Compare article names
             Assert.AreEqual(articleName, articleName2, "Article names do not match.");
-        }               
+        }
     }
 }
