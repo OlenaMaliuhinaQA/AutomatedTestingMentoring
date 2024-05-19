@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using log4net;
+using OpenQA.Selenium;
 
 namespace PageObjectTask.Tests
 {
@@ -28,6 +29,21 @@ namespace PageObjectTask.Tests
             {
                 Assert.Fail($"The vacancy content does not contain the programming language '{programmingLanguage}'.");
             }
+        }
+    }
+
+    [TestFixture]
+    public class NUnitTests : BaseTest
+    {
+        protected ILog Log
+        {
+            get { return LogManager.GetLogger(this.GetType()); }
+        }
+
+        [Test]
+        public void Test1()
+        {
+            Log.Info("Hello World of Logging :) ...");
         }
     }
 }

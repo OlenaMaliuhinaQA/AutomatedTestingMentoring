@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using log4net;
+using log4net.Config;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using PageObjectTask.PageObjects;
@@ -34,4 +36,15 @@ public class BaseTest
         driver.Quit();
         driver.Dispose();
     }
+
+    [SetUpFixture]
+    public class SetUpFixture
+    {
+        [SetUp]
+        public void BeforeAllTests()
+        {
+            XmlConfigurator.Configure(new FileInfo("Log.config"));
+        }
+    }
 }
+
