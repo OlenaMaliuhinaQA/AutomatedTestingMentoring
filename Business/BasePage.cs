@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using log4net.Config;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 
 namespace PageObjectTask.PageObjects
@@ -34,5 +35,13 @@ namespace PageObjectTask.PageObjects
                 throw new FileNotFoundException($"File '{fileName}' not found in directory '{downloadDirectory}' after waiting for {timeout.TotalSeconds} seconds.");
             }
         }
+        //[SetUpFixture]
+        //public class SetUpFixture
+        //{
+        //    [SetUp]
+        //    public void BeforeAllTests()
+        //    {
+        //        XmlConfigurator.Configure(new FileInfo("Log.config"));
+        //    }
+        }
     }
-}

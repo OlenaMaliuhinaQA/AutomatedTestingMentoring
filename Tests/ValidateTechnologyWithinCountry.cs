@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using log4net;
+using OpenQA.Selenium;
 
 namespace PageObjectTask.Tests
 {
