@@ -6,45 +6,37 @@ using OpenQA.Selenium.Support.UI;
 using PageObjectTask.PageObjects;
 public class BaseTest
 {
-    private IWebDriver driver;
+    public IUIDriver uiDriver;
     public WebDriverWait wait;
     public HomePage homePage;
     public CareerPage careerPage;
     public AboutPage aboutPage;
     public ArticlePage articlePage;
     public InsightsPage insightsPage;
-    
+    protected ILog Log;
+
     [SetUp]
     public void Setup()
     {
-        driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
-
-        homePage = new HomePage(driver);
-        careerPage = new CareerPage(driver);
-        aboutPage = new AboutPage(driver);
-        articlePage = new ArticlePage(driver);
-        insightsPage = new InsightsPage(driver);
-        driver.Navigate().GoToUrl(@"https://www.epam.com/");
-        driver.Manage().Window.Maximize();
+        XmlConfigurator.Configure(new FileInfo("Tests/Log.config"));
+        Log = LogManager.GetLogger(this.GetType());
+        uiDriver = new UIDriverFactory().Create(BrowserType.Chrome);
+        uiDriver.StartConnection();
+        wait = new WebDriverWait(uiDriver.GetDriver(), TimeSpan.FromSeconds(20));
+        homePage = new HomePage(uiDriver.GetDriver());
+        careerPage = new CareerPage(uiDriver.GetDriver());
+        aboutPage = new AboutPage(uiDriver.GetDriver());
+        articlePage = new ArticlePage(uiDriver.GetDriver());
+        insightsPage = new InsightsPage(uiDriver.GetDriver());
+        uiDriver.GetDriver().Navigate().GoToUrl(@"https://www.epam.com/");
+        uiDriver.GetDriver().Manage().Window.Maximize();
         homePage.acceptCookiesButton.Click();
     }
 
     [TearDown]
     public void TearDown()
     {
-        driver.Quit();
-        driver.Dispose();
-    }
-
-    [SetUpFixture]
-    public class SetUpFixture
-    {
-        [SetUp]
-        public void BeforeAllTests()
-        {
-            XmlConfigurator.Configure(new FileInfo("Log.config"));
-        }
+        uiDriver.StopConnection();
     }
 }
 
